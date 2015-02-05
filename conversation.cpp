@@ -289,7 +289,6 @@ public:
 
 	virtual EModRet HandleUserRaw(CClient* pClient, CString& sLine) {
 
-		DEBUG("Line: " + sLine);
 		if (sLine.TrimPrefix("CONVERSATION ")) {
 			if (sLine.TrimPrefix("add-device ")) {
 				CString sToken(sLine.Token(0));
