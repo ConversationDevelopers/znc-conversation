@@ -273,14 +273,6 @@ public:
 		return true;
 	}
 
-	virtual void OnClientCapLs(CClient* pClient, SCString& ssCaps) {
-		ssCaps.insert("conversation");
-	}
-
-	virtual bool IsClientCapSupported(CClient* pClient, const CString& sCap, bool bState) {
-		return sCap.Equals("conversation");
-	}
-
 	virtual EModRet OnUserRaw(CString& sLine) {
 		return HandleUserRaw(m_pClient, sLine);
 	}
