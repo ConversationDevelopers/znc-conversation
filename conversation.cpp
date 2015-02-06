@@ -213,6 +213,8 @@ public:
 			"", "Send notifications to registered devices");
 		AddCommand("list", static_cast<CModCommand::ModCmdFunc>(&CConversationMod::HandleListCommand),
 			"", "List all registered devices");
+		AddCommand("remove", static_cast<CModCommand::ModCmdFunc>(&CConversationMod::HandleRemoveCommand),
+				"<device-token>", "Removes a registered devices");
 
 			LoadRegistry();
 
@@ -406,6 +408,12 @@ public:
 			PutModule("There are no devices registered.");
 		}
 
+	}
+
+	void HandleRemoveCommand(const CString &sLine) {
+		CString sToken = sLine.Token(1);
+		RemoveDevice(sToken);
+		PutModule("Done");
 	}
 
 private:
