@@ -269,9 +269,11 @@ public:
 
 	}
 
-	virtual bool OnLoad(const CString& sArgs, CString& sMessage) {
-		return true;
-	}
+    virtual void OnClientLogin() {
+
+        // Let's tell Conversation we're here
+        PutUser(":" + GetNetwork()->GetCurNick() + "!znc@znc.in CONVERSATION :" + GetNetwork()->GetName());
+    }
 
 	virtual EModRet OnUserRaw(CString& sLine) {
 		return HandleUserRaw(m_pClient, sLine);
